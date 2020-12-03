@@ -1,0 +1,49 @@
+body {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: whitesmoke;
+}
+
+
+.main-section {
+  margin: 0 auto;
+  top: 100px;
+}
+
+#btn-register-id {
+  margin-bottom: 15px;
+  background-color: white;
+  color: black;
+  border-color: white;
+}
+
+
+#btn-register-id:hover {
+  border-width: 2px;
+  border-color: black;
+}
+
+img {
+  margin: 50px;
+  width: 200px;
+  height: 80px;
+}
+
+.model-content-main {
+  box-shadow: 0 0 10px black;
+  background-color: #325ea0;
+}
+
+.register-a {
+  margin-bottom: 10px;
+  padding: 5px;
+  transition: 0.2s;
+  color: white;
+}
+
+.register-a:hover {
+  color: black !important;
+  text-decoration: none;
+}
