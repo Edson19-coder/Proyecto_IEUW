@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.InStockModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.VentasMesModel"%>
@@ -61,6 +62,7 @@
         }
     }
 %>
+<% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
     <jsp:param name="nameSecc" value="Home"/>
 </jsp:include>
@@ -78,8 +80,8 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a href="Estadisticas" class="list-group-item list-group-item-action select">
-                <i class='fas fa-chart-bar' style='font-size:18px;color: black'></i>
+            <a href="Estadisticas" class="list-group-item list-group-item-action select" style="color: white;">
+                <i class='fas fa-chart-bar' style='font-size:18px;color: white'></i>
                 Estadisticas
             </a>
             <a href="Configuracion" class="list-group-item list-group-item-action">
@@ -100,10 +102,10 @@
      <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Menu</button>
-        </nav>
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom menu-button">
+             
+        </nav>  
+        
         <div class="card col-12">
             <div id="#content">
                     <div class="container">
@@ -113,11 +115,11 @@
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-m-5 col-sm-5 text-center">
                                             <h6 class="text-muted">Ingresos del mes actual</h6>
-                                            <h3 class="font-weight-bold">$<%= ventaMesTotal %></h3>
+                                            <h3 class="font-weight-bold">$<%= df.format(ventaMesTotal) %></h3>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-m-5 col-sm-5 text-center">
                                             <h6 class="text-muted">Ingresos del año actual</h6>
-                                            <h3 class="font-weight-bold">$<%= ventaMesTotalAño %></h3>
+                                            <h3 class="font-weight-bold">$<%= df.format(ventaMesTotalAño) %></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -157,6 +159,7 @@
 
 <!-- Menu Toggle Script -->
 <script src="assents/js/menu-toggle.js"></script>
+<script src="assents/js/boton-jq.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
 <script>

@@ -23,8 +23,8 @@
                 <i class='fas fa-chart-bar' style='font-size:18px;color: black'></i>
                 Estadisticas
             </a>
-            <a href="Configuracion" class="list-group-item list-group-item-action select">
-                <i class='fas fa-cog' style='font-size:18px;color: black'></i>
+            <a href="Configuracion" class="list-group-item list-group-item-action select" style="color: white;">
+                <i class='fas fa-cog' style='font-size:18px;color: white'></i>
                 Configuracion
             </a>
             <a href="Pedidos" class="list-group-item list-group-item-action">
@@ -39,10 +39,6 @@
     </div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Menu</button>
-        </nav>
 
         <div class="card col-12">
             <div class="card-footer">Direccion de envio</div>

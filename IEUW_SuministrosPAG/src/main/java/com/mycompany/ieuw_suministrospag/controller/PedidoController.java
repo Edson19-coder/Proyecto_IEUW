@@ -40,11 +40,13 @@ public class PedidoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            String volver = request.getParameter("ref");
             Integer idPedido = Integer.parseInt(request.getParameter("idPedido"));
             VentaModel pedido = VentasDAO.GetVenta(idPedido);
             List<ProductosVentaModel> productos = ProductoVentaDAO.GetProductosByVenta(idPedido);
             request.setAttribute("pedido", pedido);
             request.setAttribute("productos", productos);
+            request.setAttribute("ref", volver);
             request.getRequestDispatcher("pedido.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(PedidoController.class.getName()).log(Level.SEVERE, null, ex);

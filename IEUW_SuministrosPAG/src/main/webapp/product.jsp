@@ -1,6 +1,8 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.ProductModel"%>
 <% String user = (String) session.getAttribute("name_user_session");
     ProductModel producto = (ProductModel) request.getAttribute("Producto"); %>
+<% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
     <jsp:param name="nameSecc" value="Home"/>
 </jsp:include>
@@ -77,7 +79,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h4 class="h4-responsive"><b>Colores y existencias</b></h4>
+                    <h4 class="h4-responsive"><b>Existencias</b></h4>
                     <p style="color:#9e9e9e">*Indica los servicios adicionales requeridos al cotizar en el campo de
                         observaciones</p>
                     <div class="table-responsive">
@@ -98,15 +100,17 @@
                                             <%= producto.getIdproduct() %><br>
                                             <img class="img-fluid" src="<%= producto.getProductImgPath1() %>">
                                         </td>
-                                        <td>$<%= producto.getProductCosto() %></td>
+                                        <td>$<%= df.format(producto.getProductCosto()) %></td>
                                         <td><input name="clave" class="d-none">
-                                            <input style="width:110px;" name="cantidad" id="txt-cantidad" type="number" class="form-control" min="1" value="0"></td>
+                                            <input style="width:110px;" name="cantidad" id="txt-cantidad" type="number" class="form-control" min="1" value="0">
+                                        </td>
                                         <td><textarea name="observacion" style="width:120px;" class="form-control"></textarea></td>
-                                        <td><input type="hidden" value="<%= producto.getIdproduct() %>" name="idproducto"></td>>
->                                    </tr>
+                                        <td><input type="hidden" value="<%= producto.getIdproduct() %>" name="idproducto"></td>
+                                        </tr>
                                     <tr>
                                         <td colspan="6"><button type="submit" class="btn btn-primary waves-effect waves-light fas fa-cart-plus"> Añadir a carrito</button>
-                                        </td></tr>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </form>
                         </table>

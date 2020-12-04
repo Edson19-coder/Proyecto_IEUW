@@ -26,8 +26,8 @@
 <div class="card-body">
     <form action="./ShoppingCart" method="POST">
         <div class="container col-xl-10 col-lg-10 col-md-10 col-md-10 shp-cart-cont" style="padding: 10px;">
-            <table class="table table-hover table-bordered table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
-                <thead>
+            <table class="table table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
+                <thead style="background-color: #325ea0; color: white;">
                     <tr>
                         <th scope="col">Model</th>
                         <th scope="col">Imagen</th>
@@ -36,7 +36,7 @@
                         <th scope="col">Cantidad</th>
                         <th scope="col">Importe</th>
                         <th scope="col">Observaciones</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,15 +64,15 @@
             </table>
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-md-8 table-bordered" style="padding: 20px" >
-                    <div class="card-footer text-center"> Direccion de envio </div>
+                    <div class="card-footer text-center"> Dirección de envío </div>
                     <div class="card-body">
                         <% if (direccion != null) {%>
                         <div class="row">
                             <div class="col-6">
-                                <label class="col-12">Pais: <%= direccion.getDireccionPais()%></label>
-                                <label class="col-12">Codigo Postal: <%= direccion.getDireccionCp()%></label>
+                                <label class="col-12">País: <%= direccion.getDireccionPais()%></label>
+                                <label class="col-12">Código Postal: <%= direccion.getDireccionCp()%></label>
                                 <label class="col-12">Ciudad: <%= direccion.getDireccionCiudad()%></label>
-                                <label class="col-12">Telefono: <%= direccion.getDireccionTelefono()%></label>
+                                <label class="col-12">Teléfono: <%= direccion.getDireccionTelefono()%></label>
                             </div>
                             <div class="col-6">
                                 <label class="col-12">Calle: <%= direccion.getDireccionCalle()%></label>
@@ -83,7 +83,7 @@
                         </div>
                         <%} else {%>
                         <div class="col-10 text-center">
-                            <a href="Configuracion" class="btn btn-primary">Añadir direccion</a>
+                            <a href="Configuracion" class="btn btn-primary">Añadir dirección</a>
                         </div>
                         <%}%>
                     </div>
@@ -93,7 +93,7 @@
                         <p>Sub Total: $<%= df.format(importeTotal)%></p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
-                        <p>Costo de envio: $150</p>
+                        <p>Costo de envío $150</p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
                         <% Float total = importeTotal + 150;%>
@@ -109,16 +109,16 @@
 
                         <div class="row ">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Enter Card Number" />
+                                <input type="text" class="form-control" placeholder="Número de tarjeta" />
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                <span class="help-block text-muted small-font" > Expiry Month</span>
+                                <span class="help-block text-muted small-font" > Mes de expiración</span>
                                 <input type="text" class="form-control" placeholder="MM" />
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                <span class="help-block text-muted small-font" >  Expiry Year</span>
+                                <span class="help-block text-muted small-font" >  Año de expiración</span>
                                 <input type="text" class="form-control" placeholder="YY" />
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
@@ -132,7 +132,7 @@
                         <div class="row ">
                             <div class="col-md-12 pad-adjust" style="padding: 10px;">
 
-                                <input type="text" class="form-control" placeholder="Name On The Card" />
+                                <input type="text" class="form-control" placeholder="Nombre del titular" />
                             </div>
                         </div>
                         <div class="row">

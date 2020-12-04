@@ -239,4 +239,27 @@ public class VentasDAO {
         }
         return null;
     }  
+     
+     public static int UpdateEstado(int estado, int idVenta) throws SQLException{
+         Connection con = DbConnection.getConnection();
+        try{
+            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, ?, NULL, NULL, NULL, ?);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setString(1, "E");
+            statement.setInt(2, idVenta);
+            statement.setInt(3, estado);
+            return statement.executeUpdate();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return 0;
+    }
 }

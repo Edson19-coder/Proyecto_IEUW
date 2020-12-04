@@ -3,11 +3,13 @@ C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\ProductDAO.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\utils\Validaciones.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\ProductModel.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\EstadoController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\ProductoVentaDAO.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\EstadisticasController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\ProductosVentaModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\DireccionModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\ShoppingCartController.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\utils\Type.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\LogoutController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\UserDAO.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\ArtiuculoModel.java
@@ -16,6 +18,7 @@ C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\RegisterController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\VentaModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\PedidosController.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\utils\Correo.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\VentasMesModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\MisPedidosController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\UserModel.java

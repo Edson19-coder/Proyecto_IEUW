@@ -21,6 +21,7 @@
             <version>1.4</version>
             <type>jar</type>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>

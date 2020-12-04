@@ -1,9 +1,11 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.ProductModel"%>
 <%@page import="com.mycompany.ieuw_suministrospag.controller.HomeController"%>
 <% String user = (String) session.getAttribute("name_user_session");
    List<ProductModel> productos = (List<ProductModel>) request.getAttribute("productos");
 %>
+<% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
     <jsp:param name="nameSecc" value="Home"/>
 </jsp:include>
@@ -117,7 +119,7 @@
                         </div>
                         <!-- Filtro por categoria -->
                         <div class="row">
-                            <label for="" style="margin-top: 10px;">Categoria</label>
+                            <label for="" style="margin-top: 10px;">Categoría</label>
                         </div>
                         <div class="row">
                             <select class="browser-default custom-select" name="categoria_id" id="categoria_id">
@@ -136,7 +138,7 @@
                         </div>
                         <!-- Filtro por subcategoria -->
                         <div class="row" style="margin-top: 10px;">
-                            <label for="">Sub categoria</label>
+                            <label for="">Sub categoría</label>
                         </div>
                         <div class="row">
                             <select class="browser-default custom-select" id="subcategoria_id" name="subcategoria_id">
@@ -148,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-            </form>>
+            </form>
             <!-- Seccions -->
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
@@ -213,7 +215,7 @@
                                             <span class="badge badge-primary"><%= product.getIdproduct() %></span>
                                         </div>
                                         <div class="col-lg-6">
-                                            <span class="price"><b>$<%= product.getProductCosto() %></b></span>
+                                            <span class="price"><b>$<%= df.format(product.getProductCosto()) %></b></span>
                                         </div>
                                     </div>
                                 </div>

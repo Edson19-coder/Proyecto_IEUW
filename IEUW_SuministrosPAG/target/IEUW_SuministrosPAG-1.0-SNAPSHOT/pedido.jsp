@@ -1,3 +1,4 @@
+<%@page import="java.lang.String"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.ProductosVentaModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.VentaModel"%>
@@ -9,6 +10,7 @@
 <%
     VentaModel pedido = (VentaModel) request.getAttribute("pedido");
     List<ProductosVentaModel> productos = (List<ProductosVentaModel>) request.getAttribute("productos");
+    String volver = (String) request.getAttribute("ref");
     float subtotal = 0;
     float total = 0;
 %>
@@ -30,8 +32,8 @@
 <!--------------------------------------------------------- CONTENT --------------------------------------------------------->
 <div class="card-body">
         <div class="container col-xl-10 col-lg-10 col-md-10 col-md-10 shp-cart-cont" style="padding: 10px;">
-            <table class="table table-hover table-bordered table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
-                <thead>
+            <table class="table table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
+                <thead style="background-color: #325ea0; color: white;">
                     <tr>
                         <th scope="col">Model</th>
                         <th scope="col">Imagen</th>
@@ -50,11 +52,11 @@
                         <th scope="row"><%= producto.getIdproduct() %></th>
                         <td><img class="img-fluid" style="height: 50px;" src="<%= producto.getProductImgPath1() %>"></td>
                         <td><%= producto.getProductName() %></td>
-                        <td>$<%= producto.getProductCosto() %></td>
+                        <td>$<%= df.format(producto.getProductCosto()) %></td>
                         <td><%= a.getProductosVentaCantidad() %></td>
                         <% float importe = producto.getProductCosto() * a.getProductosVentaCantidad(); 
                             subtotal = subtotal + importe;%>
-                        <td>$<%= importe %></td>
+                            <td>$<%= df.format(importe) %></td>
                         <td><%= a.getProductosVentaObservacion() %></td>
                     </tr>
                     <%}%>
@@ -83,16 +85,16 @@
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-md-4 text-right table-bordered" style="padding: 10px;">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
-                        <p>Sub Total: $<%= subtotal %></p>
+                        <p>Sub Total: $<%= df.format(subtotal) %></p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
-                        <p>Costo de envio: $150</p>
+                        <p>Costo de envio: $150.00</p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
                         
                         <input type="hidden" name="total" value="150.0">
                         <% total = subtotal + 150; %>
-                        <p>Costo Total: $<%= total %></p>
+                        <p>Costo Total: $<%= df.format(total) %></p>
                     </div>
                 </div>
             </div>  
@@ -104,9 +106,15 @@
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
 
                             </div>
+                            <%if(volver.equals("pedidos")){%>
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                <a type="submit" class="btn btn-primary btn-block">Regresar</a>
+                                <a href="Pedidos" class="btn btn-primary btn-block">Regresar</a>
                             </div>
+                            <%}else{%>
+                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                <a href="MisPedidos" class="btn btn-primary btn-block">Regresar</a>
+                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>

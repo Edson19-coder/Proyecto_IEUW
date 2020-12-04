@@ -1,3 +1,5 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="com.mycompany.ieuw_suministrospag.utils.Type"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.VentaModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.DireccionModel"%>
@@ -5,6 +7,7 @@
     String user = (String) session.getAttribute("name_user_session");
     List<VentaModel> ventas = (List<VentaModel>) request.getAttribute("ventas");
 %>
+<% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
     <jsp:param name="nameSecc" value="Home"/>
 </jsp:include>
@@ -34,27 +37,28 @@
                 <i class='fas fa-clipboard-list' style='font-size:18px;color: black'></i>
                 Pedidos
             </a>
-            <a href="MisPedidos" class="list-group-item list-group-item-action select">
-                <i class='fas fa-box-open' style='font-size:18px;color: black'></i>
+            <a href="MisPedidos" class="list-group-item list-group-item-action select" style="color: white;">
+                <i class='fas fa-box-open' style='font-size:18px;color: white'></i>
                 Mis pedidos
             </a>
         </div>
     </div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Menu</button>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom menu-button">
+               
         </nav>
+        
         <div class="col-10">
-        <table class="table table-striped">
+        <table class="table table-striped table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
             <thead>
                 <tr>
                     <th scope="col">Orden</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Pago total</th>
                     <th scope="col">Estado</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,11 +66,24 @@
                 <tr>
                     <th scope="row"><%= venta.getIdventa() %></th>
                     <td><%= venta.getVentaFecha() %></td>
-                    <td>$<%= venta.getTotalPagar() %></td>
-                    <td><%= venta.getVentaEstado() %></td>
+                    <td>$<%= df.format(venta.getTotalPagar()) %></td>
+                    <%String estado = Type.EstadoPedido(venta.getVentaEstado());%>
+                    <%if(estado.equals("Esperando confirmacion")){%>
+                    <td style="color: gray"><%= estado %></td>
+                    <%}else if(estado.equals("En proceso")){%>
+                    <td style="color: #000000"><%= estado %></td>
+                    <%}else if(estado.equals("En camino")){%>
+                    <td style="color: #007bff"><%= estado %></td>
+                    <%}else if(estado.equals("Entregado")){%>
+                    <td style="color: green"><%= estado %></td>
+                    <%}else if(estado.equals("Cancelado")){%>
+                    <td style="color: red"><%= estado %></td>
+                    <%}%>
                     <td>
-                        <a href="#" class="btn btn-danger">Cancelar</a>
-                        <a href="Pedido?idPedido=<%= venta.getIdventa() %>" class="btn btn-link">Ver</a>
+                        <a href="Pedido?idPedido=<%= venta.getIdventa() %>&ref=mispedidos" class="btn btn-link">Ver</a>
+                        <%if(venta.getVentaEstado() < 2){%>
+                        <a href="Estado?estado=4&pedido=<%= venta.getIdventa() %>&ref=mispedidos" class="btn btn-danger">Cancelar</a>
+                        <%}%>
                     </td>
                 </tr>
                 <%}%>

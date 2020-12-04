@@ -17,7 +17,7 @@
   transition: 0.2s;
 }
 
-.secondary-nav-bar a:hover{
+.secondary-nav-bar a:hover, .select-nav {
   border-bottom: 2px solid #e12027;
   color: #e12027 !important;
 }
