@@ -1,13 +1,16 @@
+<%@page import="com.mycompany.ieuw_suministrospag.dao.UserDAO"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ieuw_suministrospag.models.ProductModel"%>
 <%@page import="com.mycompany.ieuw_suministrospag.controller.HomeController"%>
 <% String user = (String) session.getAttribute("name_user_session");
-    List<ProductModel> productos = (List<ProductModel>) request.getAttribute("productos");
+   Integer userOnboarding = (Integer) session.getAttribute("userOnboarding_user_session");
+   Integer idUser = (Integer) session.getAttribute("id_user_session");
+   List<ProductModel> productos = (List<ProductModel>) request.getAttribute("productos");
 %>
 <% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
-    <jsp:param name="nameSecc" value="Home"/>
+    <jsp:param name="nameSecc" value="Inicio"/>
 </jsp:include>
 <% if (user != null) {%>
 <jsp:include page="navbar.jsp">
@@ -157,37 +160,37 @@
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                 <div class="col-12" id="panel-dos">
                     <ul class="list-group" id="panel2">
-                        <a href="" class="selected">
+                        <a href="Home" class="selected">
                             <li class="list-group-item">Nuevos productos</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Escritura y mas">
                             <li class="list-group-item">Escritura y más</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Oficina">
                             <li class="list-group-item">Oficina</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Tecnologia">
                             <li class="list-group-item">Tecnología</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Llaveros, linternas y herramientas">
                             <li class="list-group-item">Llaveros, linternas y herramientas</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Salud y belleza">
                             <li class="list-group-item">Salud y belleza</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Bolsas, maletas y textiles">
                             <li class="list-group-item">Bolsas, maletas y textiles</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Tazas, termos y cilindros">
                             <li class="list-group-item">Tazas, termos y cilindros</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Hogar y estilo de vida">
                             <li class="list-group-item">Hogar y estilo de vida</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Sublimacion">
                             <li class="list-group-item">Sublimación</li>
                         </a>
-                        <a href="">
+                        <a href="FiltroCategroia?search=Viaje y recreacion">
                             <li class="list-group-item">Viaje y recreación</li>
                         </a>
                     </ul>
@@ -251,6 +254,13 @@
 crossorigin="anonymous"></script>
 <script src="assents/js/home-js.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/intro.min.js"></script>
+<%if(userOnboarding!=null){%>
+    <%if(userOnboarding == 0){
+        UserDAO.UpdateOnboarding(idUser);
+        session.setAttribute("userOnboarding_user_session", 1);
+    %>
+    <script src="assents/js/onboarding-inicial.js"></script>
+<%}}%>
 <script src="assents/js/onboarding-home.js"></script>
 </body>
 

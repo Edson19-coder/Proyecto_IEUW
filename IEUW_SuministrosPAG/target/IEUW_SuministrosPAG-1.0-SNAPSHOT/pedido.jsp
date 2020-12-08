@@ -18,7 +18,7 @@
 <%@page import="com.mycompany.ieuw_suministrospag.models.ProductModel"%>
 <% String user = (String) session.getAttribute("name_user_session");%>
 <jsp:include page="head.jsp">
-    <jsp:param name="nameSecc" value="Home"/>
+    <jsp:param name="nameSecc" value="Pedido"/>
 </jsp:include>
 <% if (user != null) {%>
 <jsp:include page="navbar.jsp">

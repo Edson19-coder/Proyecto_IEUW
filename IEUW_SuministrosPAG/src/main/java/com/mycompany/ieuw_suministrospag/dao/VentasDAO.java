@@ -286,4 +286,68 @@ public class VentasDAO {
         }
         return 0;
     }
+     
+     public static List<VentaModel> GetVentasSearch(String consulta, int idUsuario) throws SQLException{
+        List<VentaModel> listaVentas = new ArrayList<>(); 
+        Connection con = DbConnection.getConnection();
+         try {
+        String sql = "CALL `suministrosag_db`.`searchpedido_procedure`(?, ?, ?);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setString(1, "SU");
+            statement.setString(2, consulta);
+            statement.setInt(3, idUsuario);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                int idventa = result.getInt("idventa");
+                int ventaUsuario = result.getInt("ventaUsuario");
+                Float totalPagar = result.getFloat("totalPagar");
+                String ventaFecha = result.getString("ventaFecha");
+                int ventaEstado = result.getInt("ventaEstado");
+                listaVentas.add(new VentaModel(idventa, ventaUsuario, totalPagar, ventaFecha, ventaEstado));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return listaVentas;
+    }  
+     
+    public static List<VentaModel> GetVentasSearchAll(String consulta) throws SQLException{
+        List<VentaModel> listaVentas = new ArrayList<>(); 
+        Connection con = DbConnection.getConnection();
+         try {
+        String sql = "CALL `suministrosag_db`.`searchpedido_procedure`(?, ?, NULL);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setString(1, "SA");
+            statement.setString(2, consulta);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                int idventa = result.getInt("idventa");
+                int ventaUsuario = result.getInt("ventaUsuario");
+                String userName = result.getString("userName");
+                Float totalPagar = result.getFloat("totalPagar");
+                String ventaFecha = result.getString("ventaFecha");
+                int ventaEstado = result.getInt("ventaEstado");
+                listaVentas.add(new VentaModel(idventa, ventaUsuario, totalPagar, ventaFecha, ventaEstado, userName));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return listaVentas;
+    }  
 }

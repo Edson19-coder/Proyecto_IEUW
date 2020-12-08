@@ -7,6 +7,7 @@
     Float ventaMesTotal = (Float) request.getAttribute("ventaMesTotal");
     Float ventaMesTotalAño = (Float) request.getAttribute("ventaMesTotalAño");
     InStockModel activos = (InStockModel) request.getAttribute("activos");
+    Integer Type = (Integer) session.getAttribute("userType_user_session");
     int ventasEnero = 0, ventasFebrero = 0, ventasMarzo = 0, ventasAbril = 0, ventasMayo = 0, ventasJunio = 0, ventasJulio = 0,
             ventasAgosto = 0, ventasSeptimbre = 0, ventasOctubre = 0, ventasNoviembre = 0, ventasDiciembre = 0;
     for (VentasMesModel v : ventas) {
@@ -64,7 +65,7 @@
 %>
 <% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
-    <jsp:param name="nameSecc" value="Home"/>
+    <jsp:param name="nameSecc" value="Estadisticas"/>
 </jsp:include>
 <% if (user != null) {%>
 <jsp:include page="navbar.jsp">
@@ -80,22 +81,24 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a href="Estadisticas" class="list-group-item list-group-item-action select" style="color: white;">
-                <i class='fas fa-chart-bar' style='font-size:18px;color: white'></i>
-                Estadisticas
-            </a>
             <a href="Configuracion" class="list-group-item list-group-item-action">
                 <i class='fas fa-cog' style='font-size:18px;color: black'></i>
                 Configuracion
-            </a>
-            <a href="Pedidos" class="list-group-item list-group-item-action">
-                <i class='fas fa-clipboard-list' style='font-size:18px;color: black'></i>
-                Pedidos
             </a>
             <a href="MisPedidos" class="list-group-item list-group-item-action">
                 <i class='fas fa-box-open' style='font-size:18px;color: black'></i>
                 Mis pedidos
             </a>
+            <% if(Type == 1){ %>
+            <a href="Estadisticas" class="list-group-item list-group-item-action select" style="color: white;">
+                <i class='fas fa-chart-bar' style='font-size:18px;color: white'></i>
+                Estadisticas
+            </a>
+            <a href="Pedidos" class="list-group-item list-group-item-action">
+                <i class='fas fa-clipboard-list' style='font-size:18px;color: black'></i>
+                Pedidos Activos
+            </a>
+            <%}%>
         </div>
     </div>
 

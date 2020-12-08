@@ -12,6 +12,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 
 /**
  * 
@@ -59,7 +60,8 @@ public class UserDAO {
                  String password = result.getString("userPassword");
                  String email = result.getString("userMail");
                  Integer userType = Integer.parseInt(result.getString("userType"));
-                 return new UserModel(id, name, password, email, userType);
+                 Integer userOnboarding = Integer.parseInt(result.getString("userOnboarding"));
+                 return new UserModel(id, name, password, email, userType, userOnboarding);
              }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -125,5 +127,26 @@ public class UserDAO {
             }
         }
         return false;
+    }
+     
+     public static int UpdateOnboarding(int idUser) throws SQLException{
+        Connection con = DbConnection.getConnection();
+        try{
+            String sql = "UPDATE `suministrosag_db`.`user` SET `userOnboarding` = '1' WHERE (`iduser` = ?);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setInt(1, idUser);
+            return statement.executeUpdate();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return 0;
     }
 }

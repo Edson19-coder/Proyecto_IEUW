@@ -1,5 +1,11 @@
-.dropdown {
-  margin-right: 20px;
+.navbar-brand{
+    margin-left: 50px;
+}
+
+@media (max-width: 768px){
+    .navbar-brand{
+    margin-left: 0px;
+}
 }
 
 .main-nav-bar {

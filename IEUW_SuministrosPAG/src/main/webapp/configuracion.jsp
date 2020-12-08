@@ -1,9 +1,10 @@
 <%@page import="com.mycompany.ieuw_suministrospag.models.DireccionModel"%>
 <% String user = (String) session.getAttribute("name_user_session");
     DireccionModel direccion = (DireccionModel) request.getAttribute("direccion");
+    Integer Type = (Integer) session.getAttribute("userType_user_session");
 %>
 <jsp:include page="head.jsp">
-    <jsp:param name="nameSecc" value="Home"/>
+    <jsp:param name="nameSecc" value="Configuracion"/>
 </jsp:include>
 <% if (user != null) {%>
 <jsp:include page="navbar.jsp">
@@ -19,22 +20,24 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a href="Estadisticas" class="list-group-item list-group-item-action">
-                <i class='fas fa-chart-bar' style='font-size:18px;color: black'></i>
-                Estadisticas
-            </a>
             <a href="Configuracion" class="list-group-item list-group-item-action select" style="color: white;">
                 <i class='fas fa-cog' style='font-size:18px;color: white'></i>
                 Configuracion
-            </a>
-            <a href="Pedidos" class="list-group-item list-group-item-action">
-                <i class='fas fa-clipboard-list' style='font-size:18px;color: black'></i>
-                Pedidos
             </a>
             <a href="MisPedidos" class="list-group-item list-group-item-action">
                 <i class='fas fa-box-open' style='font-size:18px;color: black'></i>
                 Mis pedidos
             </a>
+            <% if(Type == 1){ %>
+            <a href="Estadisticas" class="list-group-item list-group-item-action">
+                <i class='fas fa-chart-bar' style='font-size:18px;color: black'></i>
+                Estadisticas
+            </a>
+            <a href="Pedidos" class="list-group-item list-group-item-action">
+                <i class='fas fa-clipboard-list' style='font-size:18px;color: black'></i>
+                Pedidos Activos
+            </a>
+            <%}%>
         </div>
     </div>
     <!-- Page Content -->

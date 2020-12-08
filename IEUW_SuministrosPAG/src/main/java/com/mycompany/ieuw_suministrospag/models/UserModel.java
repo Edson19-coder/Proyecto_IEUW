@@ -16,6 +16,7 @@ public class UserModel {
     private String userPassword;
     private String userMail;
     private int userType;
+    private int userOnboarding;
 
     public UserModel(int iduser, String userName, String userPassword, String userMail, int userType) {
         this.iduser = iduser;
@@ -25,6 +26,15 @@ public class UserModel {
         this.userType = userType;
     }
 
+    public UserModel(int iduser, String userName, String userPassword, String userMail, int userType, int userOnboarding) {
+        this.iduser = iduser;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userMail = userMail;
+        this.userType = userType;
+        this.userOnboarding = userOnboarding;
+    }
+    
     public UserModel(String userName, String userPassword, String userMail, int userType) {
         this.userName = userName;
         this.userPassword = userPassword;
@@ -75,6 +85,14 @@ public class UserModel {
 
     public void setUserType(int userType) {
         this.userType = userType;
+    }
+
+    public int getUserOnboarding() {
+        return userOnboarding;
+    }
+
+    public void setUserOnboarding(int userOnboarding) {
+        this.userOnboarding = userOnboarding;
     }
     
     

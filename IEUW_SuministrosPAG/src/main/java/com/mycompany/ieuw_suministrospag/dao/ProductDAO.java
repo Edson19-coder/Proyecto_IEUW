@@ -127,4 +127,82 @@ public class ProductDAO {
         }
         return null;
     }
+    
+    public static List<ProductModel> SearchProductos(String texto) throws SQLException{
+        List<ProductModel> productos = new ArrayList<>();
+        Connection con = DbConnection.getConnection();
+        try {
+        String sql = "CALL `suministrosag_db`.`search_procedure`(?);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setString(1, texto);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                Integer id = result.getInt("idproduct");
+                String name = result.getString("productName");
+                Integer productCategory = result.getInt("productCategory");
+                Integer productSubCategory = result.getInt("productSubCategory");
+                Float productCosto = result.getFloat("productCosto");
+                String productDescripcion = result.getString("productDescripcion");
+                String productMaterial = result.getString("productMaterial");
+                String productMedidas = result.getString("productMedidas");
+                String productUnidadEmpaque = result.getString("productUnidadEmpaque");
+                String productMedidaCaja = result.getString("productMedidaCaja");
+                String productPesoCaja = result.getString("productPesoCaja");
+                String productImgPath1 = result.getString("productImgPath1");
+                String productImgPath2 = result.getString("productImgPath2");
+                productos.add(new ProductModel(id, name, productCategory, productSubCategory, productCosto, productDescripcion, productMaterial, productMedidas, productUnidadEmpaque
+                , productMedidaCaja, productPesoCaja, productImgPath1, productImgPath2));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return productos;
+    }
+    
+    public static List<ProductModel> CategoriaProductos(String texto) throws SQLException{
+        List<ProductModel> productos = new ArrayList<>();
+        Connection con = DbConnection.getConnection();
+        try {
+        String sql = "CALL `suministrosag_db`.`filtroSearch_procedure`(?);";
+            CallableStatement statement = con.prepareCall(sql);
+            statement.setString(1, texto);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                Integer id = result.getInt("idproduct");
+                String name = result.getString("productName");
+                Integer productCategory = result.getInt("productCategory");
+                Integer productSubCategory = result.getInt("productSubCategory");
+                Float productCosto = result.getFloat("productCosto");
+                String productDescripcion = result.getString("productDescripcion");
+                String productMaterial = result.getString("productMaterial");
+                String productMedidas = result.getString("productMedidas");
+                String productUnidadEmpaque = result.getString("productUnidadEmpaque");
+                String productMedidaCaja = result.getString("productMedidaCaja");
+                String productPesoCaja = result.getString("productPesoCaja");
+                String productImgPath1 = result.getString("productImgPath1");
+                String productImgPath2 = result.getString("productImgPath2");
+                productos.add(new ProductModel(id, name, productCategory, productSubCategory, productCosto, productDescripcion, productMaterial, productMedidas, productUnidadEmpaque
+                , productMedidaCaja, productPesoCaja, productImgPath1, productImgPath2));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                } catch(SQLException ex){
+                    System.out.println(ex);
+                }
+            }
+        }
+        return productos;
+    }
 }

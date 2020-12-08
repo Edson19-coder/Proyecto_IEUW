@@ -4,7 +4,7 @@
     ProductModel producto = (ProductModel) request.getAttribute("Producto"); %>
 <% DecimalFormat df = new DecimalFormat("#.00");%>
 <jsp:include page="head.jsp">
-    <jsp:param name="nameSecc" value="Home"/>
+    <jsp:param name="nameSecc" value="Producto"/>
 </jsp:include>
 <% if (user != null) {%>
 <jsp:include page="navbar.jsp">

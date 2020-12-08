@@ -1,7 +1,9 @@
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\LoginController.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\BuscarVentaController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\DeleteArticuloController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\ProductDAO.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\utils\Validaciones.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\SearchBarController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\ProductModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\EstadoController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\ProductoVentaDAO.java
@@ -26,6 +28,7 @@ C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\models\InStockModel.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\ConfiguracionController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\PedidoController.java
+C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\FiltroCategroiaController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\ProductController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\controller\HomeController.java
 C:\Users\edson\Documents\NetBeansProjects\IEUW_SuministrosPAG\src\main\java\com\mycompany\ieuw_suministrospag\dao\DireccionDAO.java

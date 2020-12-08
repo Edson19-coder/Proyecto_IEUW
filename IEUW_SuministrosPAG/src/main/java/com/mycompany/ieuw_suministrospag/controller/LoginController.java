@@ -79,6 +79,8 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("password_user_session", user_login.getUserPassword());
                     session.setAttribute("email_user_session", user_login.getUserMail());
                     session.setAttribute("userType_user_session", user_login.getUserType());
+                    session.setAttribute("userOnboarding_user_session", user_login.getUserOnboarding());
+                        System.out.println(user_login.getUserOnboarding());
                     response.sendRedirect(request.getContextPath() + "/Home");
                 }
             } catch (SQLException ex) {
