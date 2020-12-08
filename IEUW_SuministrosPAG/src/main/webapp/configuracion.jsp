@@ -39,7 +39,11 @@
     </div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom menu-button">
+             <button class='btn btn-primary' id='menu-toggle'>Menu</button>
+        </nav>
+        
         <div class="card col-12">
             <div class="card-footer">Direccion de envio</div>
             <div class="card-body">

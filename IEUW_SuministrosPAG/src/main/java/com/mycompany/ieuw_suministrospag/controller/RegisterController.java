@@ -7,6 +7,7 @@ package com.mycompany.ieuw_suministrospag.controller;
 
 import com.mycompany.ieuw_suministrospag.dao.UserDAO;
 import com.mycompany.ieuw_suministrospag.models.UserModel;
+import com.mycompany.ieuw_suministrospag.utils.Correo;
 import com.mycompany.ieuw_suministrospag.utils.Validaciones;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -80,6 +82,15 @@ public class RegisterController extends HttpServlet {
                 if(isEmail == true && isPassword == true && isUser == false && isEmail2 == false){
                     UserModel newUser = new UserModel(userName, userPassword, userEmail, 0);
                     UserDAO.InsertUser(newUser);
+                    UserModel user_login = UserDAO.SelectUserLogin(newUser);
+                    Correo correo = new Correo();
+                    correo.mandarCorreo(user_login.getUserMail());
+                    HttpSession session = request.getSession();
+                    session.setAttribute("id_user_session", user_login.getIduser());
+                    session.setAttribute("name_user_session", user_login.getUserName());
+                    session.setAttribute("password_user_session", user_login.getUserPassword());
+                    session.setAttribute("email_user_session", user_login.getUserMail());
+                    session.setAttribute("userType_user_session", user_login.getUserType());
                     response.sendRedirect(request.getContextPath() + "/Home");
                 }else
                     request.getRequestDispatcher("register.jsp").forward(request, response);

@@ -54,7 +54,7 @@
                 <%
                     if (us != null) {
                 %>
-                <a href="ShoppingCart" class="nav-link fas fa-shopping-cart fa-lg" role="button" style="padding-top: 12px;"></a>
+                <a href="ShoppingCart" id="carrito" class="nav-link fas fa-shopping-cart fa-lg" role="button" style="padding-top: 12px;"></a>
                 <%}%>
             </li>
         </ul>

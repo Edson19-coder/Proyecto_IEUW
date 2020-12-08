@@ -7,8 +7,8 @@ package com.mycompany.ieuw_suministrospag.controller;
 
 import com.mycompany.ieuw_suministrospag.dao.UserDAO;
 import com.mycompany.ieuw_suministrospag.models.UserModel;
+import com.mycompany.ieuw_suministrospag.utils.Correo;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -33,6 +33,16 @@
   margin-left: 0;
 }
 
+#menu-toggle{
+        display: block;
+}
+
+@media (min-width: 990px){
+    #menu-toggle{
+        display: none;
+    }
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

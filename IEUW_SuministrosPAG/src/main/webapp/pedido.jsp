@@ -35,7 +35,7 @@
             <table class="table table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
                 <thead style="background-color: #325ea0; color: white;">
                     <tr>
-                        <th scope="col">Model</th>
+                        <th scope="col">Modelo</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
@@ -69,15 +69,15 @@
                         
                         <div class="row">
                             <div class="col-6">
-                                <label class="col-12">Pais: México</label>
-                                <label class="col-12">Codigo Postal: 66057</label>
-                                <label class="col-12">Ciudad: Escobedo</label>
-                                <label class="col-12">Telefono: 8128949908</label>
+                                <label class="col-12">País: <%= pedido.getVentaPais() %></label>
+                                <label class="col-12">Código Postal: <%= pedido.getVentaCp()%></label>
+                                <label class="col-12">Ciudad: <%= pedido.getVentaCiudad() %></label>
+                                <label class="col-12">Teléfono: <%= pedido.getVentaTelefono() %></label>
                             </div>
                             <div class="col-6">
-                                <label class="col-12">Calle: Naranjos</label>
-                                <label class="col-12">Estado: Nuevo Leon</label>
-                                <label class="col-12">Colonia: Residencia Escobedo</label>
+                                <label class="col-12">Calle: <%= pedido.getVentaCalle() %></label>
+                                <label class="col-12">Estado: <%= pedido.getVentaEstadoD()%></label>
+                                <label class="col-12">Colonia: <%= pedido.getVentaColonia() %></label>
                             </div>
                         </div>
                         
@@ -88,7 +88,7 @@
                         <p>Sub Total: $<%= df.format(subtotal) %></p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
-                        <p>Costo de envio: $150.00</p>
+                        <p>Costo de envío $150.00</p>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 pago">
                         

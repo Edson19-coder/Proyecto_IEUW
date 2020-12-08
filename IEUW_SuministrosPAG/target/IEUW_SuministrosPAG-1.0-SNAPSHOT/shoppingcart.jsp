@@ -26,10 +26,10 @@
 <div class="card-body">
     <form action="./ShoppingCart" method="POST">
         <div class="container col-xl-10 col-lg-10 col-md-10 col-md-10 shp-cart-cont" style="padding: 10px;">
-            <table class="table table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
+            <table class="table table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg" id="tabla">
                 <thead style="background-color: #325ea0; color: white;">
                     <tr>
-                        <th scope="col">Model</th>
+                        <th scope="col">Modelo</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
@@ -109,21 +109,21 @@
 
                         <div class="row ">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Número de tarjeta" />
+                                <input type="text" class="form-control" name="numero_tarjeta" placeholder="Número de tarjeta" />
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="help-block text-muted small-font" > Mes de expiración</span>
-                                <input type="text" class="form-control" placeholder="MM" />
+                                <input type="text" class="form-control" name="mes_exp" placeholder="MM" />
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="help-block text-muted small-font" >  Año de expiración</span>
-                                <input type="text" class="form-control" placeholder="YY" />
+                                <input type="text" class="form-control" name="año_exp" placeholder="YY" />
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="help-block text-muted small-font" >  CCV</span>
-                                <input type="text" class="form-control" placeholder="CCV" />
+                                <input type="text" class="form-control" name="ccv" placeholder="CCV" />
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="far fa-credit-card"></span>
@@ -132,7 +132,7 @@
                         <div class="row ">
                             <div class="col-md-12 pad-adjust" style="padding: 10px;">
 
-                                <input type="text" class="form-control" placeholder="Nombre del titular" />
+                                <input type="text" class="form-control" name="titular" placeholder="Nombre del titular" />
                             </div>
                         </div>
                         <div class="row">
@@ -142,7 +142,7 @@
 
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                <input type="submit"  class="btn btn-primary btn-block" value="Realizar pedido" />
+                                <input type="submit"  class="btn btn-primary btn-block" value="Realizar pedido" id="pagar" />
                             </div>
                         </div>
 
@@ -153,6 +153,12 @@
     </form>
 </div>
 <script src="assents/js/shoppingcart.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/intro.min.js"></script>
+<script src="assents/js/onboarding-shoppingcart.js"></script>
 </body>
 
 </html>

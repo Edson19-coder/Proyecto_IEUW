@@ -25,12 +25,24 @@ public class VentasDAO {
     public static int InsertVenta(VentaModel venta) throws SQLException{
          Connection con = DbConnection.getConnection();
         try{
-            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, ?, ?, ?, NULL);";
+            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "I");
             statement.setInt(2, venta.getVentaUsuario());
             statement.setFloat(3, venta.getTotalPagar());
             statement.setString(4, venta.getVentaFecha());
+            statement.setString(5, venta.getVentaPais());
+            statement.setString(6, venta.getVentaCalle());
+            statement.setInt(7, venta.getVentaCp());
+            statement.setString(8, venta.getVentaEstadoD());
+            statement.setString(9, venta.getVentaCiudad());
+            statement.setString(10, venta.getVentaColonia());
+            statement.setString(11, venta.getVentaTelefono());
+            statement.setString(12, venta.getVentaNumeroTarjeta());
+            statement.setInt(13, venta.getVentaMes());
+            statement.setInt(14, venta.getVentaAño());
+            statement.setInt(15, venta.getVentaCcv());
+            statement.setString(16, venta.getVentaTitular());
             return statement.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -50,7 +62,7 @@ public class VentasDAO {
         List<VentasMesModel> listaVentasMes = new ArrayList<>(); 
         Connection con = DbConnection.getConnection();
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "VM");
             ResultSet result = statement.executeQuery();
@@ -77,7 +89,7 @@ public class VentasDAO {
         Connection con = DbConnection.getConnection();
         float total = 0;
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "TM");
             ResultSet result = statement.executeQuery();
@@ -102,7 +114,7 @@ public class VentasDAO {
         Connection con = DbConnection.getConnection();
         float total = 0;
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "TA");
             ResultSet result = statement.executeQuery();
@@ -126,7 +138,7 @@ public class VentasDAO {
      public static int GetLastId() throws SQLException{
          Connection con = DbConnection.getConnection();
         try{
-            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL);";
+            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "UI");
             ResultSet result = statement.executeQuery();
@@ -152,7 +164,7 @@ public class VentasDAO {
         List<VentaModel> listaVentas = new ArrayList<>(); 
         Connection con = DbConnection.getConnection();
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "SA");
             ResultSet result = statement.executeQuery();
@@ -183,7 +195,7 @@ public class VentasDAO {
         List<VentaModel> listaVentas = new ArrayList<>(); 
         Connection con = DbConnection.getConnection();
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, ?, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, NULL, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "SU");
             statement.setInt(2, idUser);
@@ -213,7 +225,7 @@ public class VentasDAO {
      public static VentaModel GetVenta(int idVenta) throws SQLException{
         Connection con = DbConnection.getConnection();
          try {
-        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, ?, NULL, NULL, NULL, NULL);";
+        String sql = "CALL `suministrosag_db`.`venta_procedure`(?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "S");
             statement.setInt(2, idVenta);
@@ -224,7 +236,19 @@ public class VentasDAO {
                 Float totalPagar = result.getFloat("totalPagar");
                 String ventaFecha = result.getString("ventaFecha");
                 int ventaEstado = result.getInt("ventaEstado");
-                return new VentaModel(idventa, ventaUsuario, totalPagar, ventaFecha, ventaEstado);
+                String ventaPais = result.getString("ventaPais");
+                String ventaCalle = result.getString("ventaCalle");
+                int ventaCp = result.getInt("ventaCp");
+                String ventaEstadoD = result.getString("ventaEstadoD");
+                String ventaCiudad = result.getString("ventaCiudad");
+                String ventaColonia = result.getString("ventaColonia");
+                String ventaTelefono = result.getString("ventaTelefono");
+                String ventaNumeroTarjeta = result.getString("ventaNumeroTarjeta");
+                Integer ventaMes = result.getInt("ventaMes");
+                Integer ventaAño = result.getInt("ventaAño");
+                Integer ventaCcv = result.getInt("ventaCcv");
+                String ventaTitular = result.getString("ventaTitular");
+                return new VentaModel(idventa, ventaUsuario, totalPagar, ventaFecha, ventaEstado, ventaPais, ventaCalle, ventaCp, ventaEstadoD, ventaCiudad, ventaColonia, ventaTelefono, ventaNumeroTarjeta, ventaMes, ventaAño, ventaCcv, ventaTitular);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -243,7 +267,7 @@ public class VentasDAO {
      public static int UpdateEstado(int estado, int idVenta) throws SQLException{
          Connection con = DbConnection.getConnection();
         try{
-            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, ?, NULL, NULL, NULL, ?);";
+            String sql = "CALL `suministrosag_db`.`venta_procedure`(?, ?, NULL, NULL, NULL, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             CallableStatement statement = con.prepareCall(sql);
             statement.setString(1, "E");
             statement.setInt(2, idVenta);

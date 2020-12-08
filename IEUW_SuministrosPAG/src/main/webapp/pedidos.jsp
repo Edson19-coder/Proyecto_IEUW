@@ -44,7 +44,11 @@
     </div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom menu-button">
+             <button class='btn btn-primary' id='menu-toggle'>Menu</button>
+        </nav>
+        
         <div class="col-10">
         <table class="table table-striped table-responsive-sm table-responsive-md table-responsive-m table-responsive-lg">
             <thead>
